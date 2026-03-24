@@ -15,7 +15,22 @@ router.get("/posts", (req, res) => {
     { id: 2, title: "Second Post", content: "Another dummy post" }
   ]);
 });
+// Update post
+router.put("/posts/:id", (req, res) => {
+  const postId = req.params.id;
+  res.json({
+    message: `Post ${postId} updated`,
+    updatedData: req.body
+  });
+});
 
+// Delete post
+router.delete("/posts/:id", (req, res) => {
+  const postId = req.params.id;
+  res.json({
+    message: `Post ${postId} deleted`
+  });
+});
 // Get single post
 router.get("/posts/:id", (req, res) => {
   const postId = req.params.id;
@@ -35,21 +50,6 @@ router.post("/posts", (req, res) => {
   });
 });
 
-// Update post
-router.put("/posts/:id", (req, res) => {
-  const postId = req.params.id;
-  res.json({
-    message: `Post ${postId} updated`,
-    updatedData: req.body
-  });
-});
 
-// Delete post
-router.delete("/posts/:id", (req, res) => {
-  const postId = req.params.id;
-  res.json({
-    message: `Post ${postId} deleted`
-  });
-});
 
 module.exports = router;
